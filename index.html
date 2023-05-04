@@ -9,18 +9,18 @@
     <script>
         class Demo extends Phaser.Scene {
             create() {
-                this.meep = this.add.text(10,10,'🐁').setOrigin(0.5,0.5);
+                this.egg = this.add.text(10,10,'🥚').setOrigin(0.5,0.5);
                 this.input.setDefaultCursor('none');
                 this.input.on('pointerdown', (event) => {
                     this.tweens.add({
-                        targets: this.meep,
+                        targets: this.egg,
                         scale: 2,
                         duration: 100
                     });
                 });
                 this.input.on('pointerup', (event) => {
                     this.tweens.add({
-                        targets: this.meep,
+                        targets: this.egg,
                         scale: 1,
                         duration: 100
                     });
@@ -29,12 +29,12 @@
             }
             update() {
                 let {x,y,isDown} = this.input.activePointer;
-                this.meep.setPosition(x,y);
+                this.egg.setPosition(x,y);
 
                 if(isDown && Math.random() < 0.025) {
                     // twerk the mouse
                     this.tweens.add({
-                        targets: this.meep,
+                        targets: this.egg,
                         angle: {from: -5, to: 0},
                         duration: 250
                     });
@@ -75,6 +75,6 @@
 </head>
 <body>
     <div id="here"></div>
-    Drag the mouse around the screen.
+    Drag the Egg around the screen.
 </body>
 </html>
